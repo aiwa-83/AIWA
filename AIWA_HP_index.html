@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIWA（アイワ）― AIと人をつなぐ輪</title>
+<meta name="description" content="諦めてきたチャンスを、取り戻す。あなたの隣に、本物の伴走者を。補助金診断・経営伴走・子育て見守りAI。熊本県玉東町発信。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --cream:#FFFCF8;
+  --pink-pale:#FFF5F0;
+  --lav-pale:#F5F0FF;
+  --green-pale:#F0F8F5;
+  --pink-mid:#F0C8B8;
+  --lav-mid:#D8B8F0;
+  --coral:#C87040;
+  --coral-dark:#A85828;
+  --plum:#5A3A6A;
+  --plum-light:#7A5A8A;
+  --teal:#2A8060;
+  --text:#3A2A3A;
+  --text-mid:#7A5870;
+  --text-muted:#A890A0;
+  --border:rgba(180,120,160,0.15);
+  --card:#FFFFFF;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--cream);color:var(--text);line-height:1.9;font-size:15px;}
+
+/* ━━ NAV ━━ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(255,252,248,0.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;height:60px;
+}
+.nav-logo{
+  font-family:'Noto Serif JP',serif;
+  font-size:22px;font-weight:600;
+  color:var(--plum);letter-spacing:3px;
+}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{color:var(--text-mid);text-decoration:none;font-size:13px;letter-spacing:1px;transition:color 0.2s;}
+.nav-links a:hover{color:var(--plum);}
+.nav-btn{
+  background:var(--coral);color:#fff;
+  border:none;padding:8px 22px;border-radius:22px;
+  font-size:12px;font-family:'Noto Sans JP',sans-serif;
+  text-decoration:none;transition:all 0.2s;
+}
+.nav-btn:hover{background:var(--coral-dark);}
+
+/* ━━ HERO ━━ */
+.hero{
+  background:linear-gradient(150deg,#FFF8F5 0%,#FFF5FA 40%,#F8F0FF 80%,#F0F8F5 100%);
+  padding:130px 48px 100px;
+  position:relative;overflow:hidden;
+  min-height:100vh;display:flex;align-items:center;
+}
+.hero-inner{max-width:820px;margin:0 auto;position:relative;z-index:2;}
+.hero-tag{
+  display:inline-block;
+  background:rgba(180,120,160,0.1);
+  color:var(--plum-light);
+  font-size:11px;letter-spacing:3px;
+  padding:6px 18px;border-radius:20px;
+  margin-bottom:36px;
+}
+.hero-copy1{
+  font-family:'Noto Serif JP',serif;
+  font-size:clamp(24px,4vw,42px);
+  font-weight:600;color:var(--plum);
+  line-height:1.5;margin-bottom:12px;
+}
+.hero-copy2{
+  font-family:'Noto Serif JP',serif;
+  font-size:clamp(24px,4vw,42px);
+  font-weight:600;color:var(--coral);
+  line-height:1.5;margin-bottom:36px;
+}
+.hero-badge{
+  display:inline-block;
+  background:rgba(200,112,64,0.1);
+  color:var(--coral);
+  font-size:12px;font-weight:500;
+  padding:10px 22px;border-radius:6px;
+  border:1px solid rgba(200,112,64,0.2);
+  margin-bottom:28px;
+}
+.hero-desc{
+  font-size:15px;color:var(--text-mid);
+  line-height:2.1;margin-bottom:48px;max-width:560px;
+}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-primary{
+  background:var(--coral);color:#fff;
+  padding:14px 34px;border-radius:30px;
+  font-size:14px;font-weight:500;
+  text-decoration:none;transition:all 0.2s;display:inline-block;
+}
+.btn-primary:hover{background:var(--coral-dark);transform:translateY(-2px);}
+.btn-secondary{
+  background:#fff;color:var(--plum);
+  border:1px solid var(--lav-mid);
+  padding:14px 34px;border-radius:30px;
+  font-size:14px;text-decoration:none;
+  transition:all 0.2s;display:inline-block;
+}
+.btn-secondary:hover{background:var(--lav-pale);}
+
+/* ━━ アジサイSVG（ヒーロー右下）━━ */
+.hero-ajisai{
+  position:absolute;right:-10px;bottom:-10px;
+  width:480px;height:380px;
+  opacity:0.88;z-index:1;
+  pointer-events:none;
+}
+.hero-ajisai-sm{
+  position:absolute;left:30px;top:130px;
+  width:160px;height:130px;
+  opacity:0.65;z-index:1;
+  pointer-events:none;
+  transform:rotate(12deg);
+}
+
+/* ━━ SECTIONS ━━ */
+section{padding:88px 48px;}
+.section-inner{max-width:900px;margin:0 auto;}
+.section-label{
+  font-size:11px;letter-spacing:3px;
+  color:var(--text-muted);margin-bottom:10px;
+}
+.section-title{
+  font-family:'Noto Serif JP',serif;
+  font-size:clamp(20px,3vw,28px);
+  font-weight:600;color:var(--plum);
+  margin-bottom:48px;line-height:1.6;
+}
+
+/* ━━ 3つのなくす ━━ */
+.naku-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;}
+.naku-card{
+  border-radius:18px;padding:28px 22px;
+  border:1px solid transparent;
+  transition:transform 0.2s,box-shadow 0.2s;
+  position:relative;overflow:hidden;
+}
+.naku-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(150,80,120,0.1);}
+.naku-card.c1{background:var(--pink-pale);border-color:var(--pink-mid);}
+.naku-card.c2{background:var(--green-pale);border-color:#B8DDD0;}
+.naku-card.c3{background:var(--lav-pale);border-color:var(--lav-mid);}
+.naku-num{font-size:11px;font-weight:500;letter-spacing:2px;margin-bottom:12px;}
+.naku-card.c1 .naku-num{color:var(--coral);}
+.naku-card.c2 .naku-num{color:var(--teal);}
+.naku-card.c3 .naku-num{color:var(--plum);}
+.naku-head{font-size:16px;font-weight:500;color:var(--text);margin-bottom:12px;line-height:1.6;}
+.naku-body{font-size:13px;color:var(--text-mid);line-height:1.9;}
+
+/* ━━ サービス ━━ */
+.svc-bg{background:linear-gradient(180deg,#FFF8F5 0%,#FFF5FA 100%);}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;}
+.svc-card{
+  background:var(--card);border-radius:16px;
+  padding:24px 20px;border:1px solid var(--border);
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.svc-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(150,80,120,0.08);}
+.svc-tag{display:inline-block;font-size:10px;font-weight:500;padding:3px 10px;border-radius:10px;margin-bottom:12px;letter-spacing:1px;}
+.tag-biz{background:#FFF0E0;color:#A06020;}
+.tag-care{background:#E8F5F0;color:#2A7050;}
+.svc-name{font-family:'Noto Serif JP',serif;font-size:16px;font-weight:600;color:var(--plum);margin-bottom:8px;}
+.svc-desc{font-size:12px;color:var(--text-mid);line-height:1.9;}
+.svc-price{font-size:11px;color:var(--coral);font-weight:500;margin-top:14px;}
+
+/* ━━ WAシリーズ ━━ */
+.wa-section{background:linear-gradient(135deg,#F8F0FF 0%,#FFF0F8 100%);}
+.wa-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;}
+.wa-card{
+  background:#fff;border-radius:14px;padding:20px 16px;
+  border:1px solid rgba(180,120,200,0.2);
+  text-align:center;
+  transition:transform 0.2s;
+}
+.wa-card:hover{transform:translateY(-3px);}
+.wa-icon{font-size:28px;margin-bottom:10px;}
+.wa-name{font-family:'Noto Serif JP',serif;font-size:15px;font-weight:600;color:var(--plum);margin-bottom:6px;}
+.wa-desc{font-size:11px;color:var(--text-mid);line-height:1.8;}
+.wa-status{display:inline-block;font-size:10px;padding:2px 10px;border-radius:10px;margin-top:10px;}
+.ws-ready{background:#FFF0E0;color:#A06020;}
+.ws-dev{background:#E8F5F0;color:#2A7050;}
+.ws-new{background:var(--lav-pale);color:var(--plum);}
+
+/* ━━ プロフィール ━━ */
+.profile-wrap{
+  background:linear-gradient(135deg,var(--plum) 0%,var(--plum-light) 100%);
+  border-radius:22px;padding:52px 48px;
+  position:relative;overflow:hidden;
+}
+.profile-wrap::before{
+  content:'';position:absolute;
+  right:-50px;top:-50px;
+  width:200px;height:200px;border-radius:50%;
+  background:rgba(255,255,255,0.05);
+}
+.profile-ajisai{
+  position:absolute;right:24px;bottom:16px;
+  width:180px;height:140px;
+  opacity:0.55;
+}
+.profile-grid{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:start;position:relative;z-index:1;}
+.profile-avatar-wrap{display:flex;flex-direction:column;align-items:center;gap:8px;}
+.profile-photo-note{font-size:9px;color:rgba(220,185,240,0.5);letter-spacing:1px;text-align:center;max-width:110px;line-height:1.5;}
+.profile-avatar{
+  width:100px;height:100px;border-radius:50%;
+  background:rgba(255,255,255,0.15);
+  display:flex;align-items:center;justify-content:center;
+  font-size:28px;font-weight:600;font-family:'Noto Serif JP',serif;
+  color:#fff;border:2px solid rgba(220,180,240,0.4);
+  flex-shrink:0;
+}
+.profile-name{font-family:'Noto Serif JP',serif;font-size:24px;font-weight:600;color:#fff;margin-bottom:4px;}
+.profile-name-en{font-size:12px;color:rgba(220,180,240,0.8);letter-spacing:2px;margin-bottom:20px;}
+.profile-items{list-style:none;}
+.profile-items li{font-size:13px;color:rgba(220,185,240,0.85);padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.06);line-height:1.8;}
+.profile-items li::before{content:'―';margin-right:8px;color:rgba(220,140,100,0.8);}
+.profile-quote{
+  margin-top:20px;padding:16px 18px;
+  background:rgba(255,255,255,0.07);
+  border-left:3px solid rgba(220,140,100,0.6);
+  font-size:13px;color:rgba(220,185,240,0.9);
+  line-height:2;font-style:italic;
+}
+
+/* ━━ ロードマップ ━━ */
+.road-bg{background:linear-gradient(180deg,#FFF5FA 0%,var(--cream) 100%);}
+.road-list{list-style:none;position:relative;padding-left:32px;}
+.road-list::before{content:'';position:absolute;left:10px;top:8px;bottom:8px;width:1px;background:var(--border);}
+.road-item{position:relative;margin-bottom:36px;}
+.road-item::before{content:'';position:absolute;left:-26px;top:6px;width:14px;height:14px;border-radius:50%;background:#fff;border:2px solid var(--lav-mid);}
+.road-item.active::before{background:var(--coral);border-color:var(--coral);}
+.road-phase{font-size:10px;letter-spacing:2px;color:var(--coral);margin-bottom:4px;}
+.road-title{font-size:15px;font-weight:500;color:var(--text);margin-bottom:6px;}
+.road-desc{font-size:13px;color:var(--text-mid);line-height:1.9;}
+
+/* ━━ お問い合わせ ━━ */
+.contact-bg{
+  background:linear-gradient(150deg,#FFF0F8 0%,#F5F0FF 100%);
+  position:relative;overflow:hidden;
+}
+.contact-ajisai{
+  position:absolute;right:30px;bottom:0;
+  width:280px;height:220px;opacity:0.65;
+}
+.contact-inner{max-width:620px;margin:0 auto;text-align:center;position:relative;z-index:1;}
+.contact-title{font-family:'Noto Serif JP',serif;font-size:28px;font-weight:600;color:var(--plum);margin-bottom:16px;}
+.contact-sub{font-size:14px;color:var(--text-mid);margin-bottom:48px;line-height:2.1;}
+.contact-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:40px;text-align:left;}
+.contact-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 20px;}
+.contact-card-label{font-size:10px;letter-spacing:2px;color:var(--text-muted);margin-bottom:6px;}
+.contact-card-val{font-size:14px;color:var(--text);font-weight:500;}
+
+/* ━━ FOOTER ━━ */
+footer{background:var(--plum);padding:48px;text-align:center;}
+.footer-logo{font-family:'Noto Serif JP',serif;font-size:24px;font-weight:600;color:#fff;letter-spacing:4px;margin-bottom:8px;}
+.footer-sub{font-size:12px;color:rgba(220,185,240,0.7);letter-spacing:2px;margin-bottom:20px;}
+.footer-copy{font-size:11px;color:rgba(220,185,240,0.4);}
+
+@media(max-width:640px){
+  nav{padding:0 20px;}.nav-links{display:none;}
+  .hero{padding:100px 24px 72px;}
+  .hero-ajisai{width:220px;height:180px;}
+  section{padding:64px 24px;}
+  .profile-grid{grid-template-columns:1fr;}
+  .contact-cards{grid-template-columns:1fr;}
+  .profile-wrap{padding:32px 24px;}
+  footer{padding:36px 24px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">AIWA</div>
+  <ul class="nav-links">
+    <li><a href="#about">AIWAとは</a></li>
+    <li><a href="#services">サービス</a></li>
+    <li><a href="#wa">WAシリーズ</a></li>
+    <li><a href="#profile">代表</a></li>
+    <li><a href="#contact">お問い合わせ</a></li>
+  </ul>
+  <a href="#contact" class="nav-btn">まず相談する</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+  <!-- アジサイSVG（右下・大） -->
+  <svg class="hero-ajisai" viewBox="0 0 480 380" xmlns="http://www.w3.org/2000/svg">
+    <!-- 葉 -->
+    <ellipse cx="80" cy="345" rx="75" ry="36" fill="#78BE88" opacity="0.80" transform="rotate(-18,80,345)"/>
+    <line x1="38" y1="343" x2="112" y2="298" stroke="#4E8A5E" stroke-width="2.2" opacity="0.72"/>
+    <line x1="62" y1="340" x2="98" y2="310" stroke="#4E8A5E" stroke-width="1.6" opacity="0.58"/>
+    <ellipse cx="205" cy="358" rx="82" ry="32" fill="#6AB87A" opacity="0.76" transform="rotate(8,205,358)"/>
+    <line x1="158" y1="355" x2="232" y2="318" stroke="#4E8A5E" stroke-width="2" opacity="0.68"/>
+    <ellipse cx="355" cy="350" rx="70" ry="29" fill="#78BE88" opacity="0.72" transform="rotate(-5,355,350)"/>
+    <line x1="318" y1="347" x2="382" y2="316" stroke="#4E8A5E" stroke-width="1.8" opacity="0.62"/>
+    <ellipse cx="445" cy="340" rx="52" ry="25" fill="#6AB87A" opacity="0.68" transform="rotate(12,445,340)"/>
+
+    <!-- 花群1：ラベンダー -->
+    <g transform="translate(112,215)">
+      <ellipse cx="0" cy="-28" rx="18" ry="12" fill="#AA80DC" opacity="0.94" transform="rotate(0)"/>
+      <ellipse cx="0" cy="-28" rx="18" ry="12" fill="#C29AEE" opacity="0.90" transform="rotate(90)"/>
+      <ellipse cx="0" cy="-28" rx="18" ry="12" fill="#AA80DC" opacity="0.88" transform="rotate(180)"/>
+      <ellipse cx="0" cy="-28" rx="18" ry="12" fill="#C29AEE" opacity="0.85" transform="rotate(270)"/>
+      <circle cx="0" cy="0" r="8" fill="#E5D2FA" opacity="0.96"/>
+      <circle cx="0" cy="0" r="4" fill="#F2E8FF"/>
+    </g>
+    <g transform="translate(158,182)">
+      <ellipse cx="0" cy="-24" rx="16" ry="11" fill="#B88AE2" opacity="0.92" transform="rotate(22)"/>
+      <ellipse cx="0" cy="-24" rx="16" ry="11" fill="#CEA4F2" opacity="0.88" transform="rotate(112)"/>
+      <ellipse cx="0" cy="-24" rx="16" ry="11" fill="#B88AE2" opacity="0.86" transform="rotate(202)"/>
+      <ellipse cx="0" cy="-24" rx="16" ry="11" fill="#CEA4F2" opacity="0.83" transform="rotate(292)"/>
+      <circle cx="0" cy="0" r="6" fill="#E8D4FA"/>
+    </g>
+    <g transform="translate(74,184)">
+      <ellipse cx="0" cy="-22" rx="15" ry="10" fill="#A075D4" opacity="0.90" transform="rotate(-18)"/>
+      <ellipse cx="0" cy="-22" rx="15" ry="10" fill="#B488E5" opacity="0.86" transform="rotate(72)"/>
+      <ellipse cx="0" cy="-22" rx="15" ry="10" fill="#A075D4" opacity="0.84" transform="rotate(162)"/>
+      <ellipse cx="0" cy="-22" rx="15" ry="10" fill="#B488E5" opacity="0.81" transform="rotate(252)"/>
+      <circle cx="0" cy="0" r="6" fill="#E2CDF8"/>
+    </g>
+    <g transform="translate(130,150)">
+      <ellipse cx="0" cy="-20" rx="13" ry="9" fill="#C09AEA" opacity="0.88" transform="rotate(10)"/>
+      <ellipse cx="0" cy="-20" rx="13" ry="9" fill="#D4AEF5" opacity="0.84" transform="rotate(100)"/>
+      <ellipse cx="0" cy="-20" rx="13" ry="9" fill="#C09AEA" opacity="0.82" transform="rotate(190)"/>
+      <ellipse cx="0" cy="-20" rx="13" ry="9" fill="#D4AEF5" opacity="0.79" transform="rotate(280)"/>
+      <circle cx="0" cy="0" r="5" fill="#EAD8FC"/>
+    </g>
+
+    <!-- 花群2：ピンク -->
+    <g transform="translate(272,225)">
+      <ellipse cx="0" cy="-28" rx="18" ry="12" fill="#EC82BA" opacity="0.94" transform="rotate(5)"/>
+      <ellipse cx="0" cy="-28" rx="18" ry="12" fill="#F8A0CE" opacity="0.90" transform="rotate(95)"/>
+      <ellipse cx="0" cy="-28" rx="18" ry="12" fill="#EC82BA" opacity="0.88" transform="rotate(185)"/>
+      <ellipse cx="0" cy="-28" rx="18" ry="12" fill="#F8A0CE" opacity="0.85" transform="rotate(275)"/>
+      <circle cx="0" cy="0" r="8" fill="#FCE4F2" opacity="0.96"/>
+      <circle cx="0" cy="0" r="4" fill="#FFF0F8"/>
+    </g>
+    <g transform="translate(318,193)">
+      <ellipse cx="0" cy="-24" rx="16" ry="11" fill="#E278B0" opacity="0.92" transform="rotate(-12)"/>
+      <ellipse cx="0" cy="-24" rx="16" ry="11" fill="#F298C8" opacity="0.88" transform="rotate(78)"/>
+      <ellipse cx="0" cy="-24" rx="16" ry="11" fill="#E278B0" opacity="0.86" transform="rotate(168)"/>
+      <ellipse cx="0" cy="-24" rx="16" ry="11" fill="#F298C8" opacity="0.83" transform="rotate(258)"/>
+      <circle cx="0" cy="0" r="6" fill="#FADCF0"/>
+    </g>
+    <g transform="translate(234,196)">
+      <ellipse cx="0" cy="-22" rx="15" ry="10" fill="#F08CC4" opacity="0.90" transform="rotate(16)"/>
+      <ellipse cx="0" cy="-22" rx="15" ry="10" fill="#F8A4D2" opacity="0.86" transform="rotate(106)"/>
+      <ellipse cx="0" cy="-22" rx="15" ry="10" fill="#F08CC4" opacity="0.84" transform="rotate(196)"/>
+      <ellipse cx="0" cy="-22" rx="15" ry="10" fill="#F8A4D2" opacity="0.81" transform="rotate(286)"/>
+      <circle cx="0" cy="0" r="6" fill="#FCE4F2"/>
+    </g>
+    <g transform="translate(280,162)">
+      <ellipse cx="0" cy="-20" rx="13" ry="9" fill="#EC82BA" opacity="0.88" transform="rotate(-6)"/>
+      <ellipse cx="0" cy="-20" rx="13" ry="9" fill="#F8A0CE" opacity="0.84" transform="rotate(84)"/>
+      <ellipse cx="0" cy="-20" rx="13" ry="9" fill="#EC82BA" opacity="0.82" transform="rotate(174)"/>
+      <ellipse cx="0" cy="-20" rx="13" ry="9" fill="#F8A0CE" opacity="0.79" transform="rotate(264)"/>
+      <circle cx="0" cy="0" r="5" fill="#FCE4F2"/>
+    </g>
+
+    <!-- 花群3：水色 -->
+    <g transform="translate(402,215)">
+      <ellipse cx="0" cy="-26" rx="17" ry="11" fill="#7AB8E8" opacity="0.92" transform="rotate(0)"/>
+      <ellipse cx="0" cy="-26" rx="17" ry="11" fill="#96CCF4" opacity="0.88" transform="rotate(90)"/>
+      <ellipse cx="0" cy="-26" rx="17" ry="11" fill="#7AB8E8" opacity="0.86" transform="rotate(180)"/>
+      <ellipse cx="0" cy="-26" rx="17" ry="11" fill="#96CCF4" opacity="0.83" transform="rotate(270)"/>
+      <circle cx="0" cy="0" r="7" fill="#D4ECFC" opacity="0.96"/>
+    </g>
+    <g transform="translate(444,182)">
+      <ellipse cx="0" cy="-22" rx="14" ry="9" fill="#82B8E4" opacity="0.90" transform="rotate(14)"/>
+      <ellipse cx="0" cy="-22" rx="14" ry="9" fill="#9ACAF0" opacity="0.86" transform="rotate(104)"/>
+      <ellipse cx="0" cy="-22" rx="14" ry="9" fill="#82B8E4" opacity="0.84" transform="rotate(194)"/>
+      <ellipse cx="0" cy="-22" rx="14" ry="9" fill="#9ACAF0" opacity="0.81" transform="rotate(284)"/>
+      <circle cx="0" cy="0" r="5" fill="#D8EEFA"/>
+    </g>
+    <g transform="translate(370,186)">
+      <ellipse cx="0" cy="-20" rx="13" ry="8" fill="#90C2EE" opacity="0.88" transform="rotate(-10)"/>
+      <ellipse cx="0" cy="-20" rx="13" ry="8" fill="#A8D2F5" opacity="0.84" transform="rotate(80)"/>
+      <ellipse cx="0" cy="-20" rx="13" ry="8" fill="#90C2EE" opacity="0.82" transform="rotate(170)"/>
+      <ellipse cx="0" cy="-20" rx="13" ry="8" fill="#A8D2F5" opacity="0.79" transform="rotate(260)"/>
+      <circle cx="0" cy="0" r="5" fill="#D8EEFA"/>
+    </g>
+
+    <!-- つぼみ -->
+    <circle cx="188" cy="135" r="9" fill="#C8A4F0" opacity="0.80"/>
+    <circle cx="204" cy="123" r="7" fill="#DAB8F8" opacity="0.75"/>
+    <circle cx="344" cy="148" r="9" fill="#F8A0C4" opacity="0.80"/>
+    <circle cx="362" cy="133" r="7" fill="#FAB8D4" opacity="0.75"/>
+    <circle cx="424" cy="160" r="8" fill="#9CCAF0" opacity="0.76"/>
+  </svg>
+
+  <!-- アジサイSVG（左上・小） -->
+  <!-- アジサイSVG（左上・小） -->
+  <svg class="hero-ajisai-sm" viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(55,65)">
+      <ellipse cx="0" cy="-20" rx="14" ry="9" fill="#B090E0" opacity="0.90" transform="rotate(0)"/>
+      <ellipse cx="0" cy="-20" rx="14" ry="9" fill="#C8A4F0" opacity="0.86" transform="rotate(90)"/>
+      <ellipse cx="0" cy="-20" rx="14" ry="9" fill="#B090E0" opacity="0.84" transform="rotate(180)"/>
+      <ellipse cx="0" cy="-20" rx="14" ry="9" fill="#C8A4F0" opacity="0.82" transform="rotate(270)"/>
+      <circle cx="0" cy="0" r="6" fill="#E8D8FC"/>
+    </g>
+    <g transform="translate(100,42)">
+      <ellipse cx="0" cy="-17" rx="12" ry="8" fill="#EC98C0" opacity="0.88" transform="rotate(15)"/>
+      <ellipse cx="0" cy="-17" rx="12" ry="8" fill="#F8AED0" opacity="0.84" transform="rotate(105)"/>
+      <ellipse cx="0" cy="-17" rx="12" ry="8" fill="#EC98C0" opacity="0.82" transform="rotate(195)"/>
+      <ellipse cx="0" cy="-17" rx="12" ry="8" fill="#F8AED0" opacity="0.80" transform="rotate(285)"/>
+      <circle cx="0" cy="0" r="5" fill="#FCE8F2"/>
+    </g>
+    <g transform="translate(28,46)">
+      <ellipse cx="0" cy="-15" rx="11" ry="7" fill="#88BAEC" opacity="0.86" transform="rotate(-10)"/>
+      <ellipse cx="0" cy="-15" rx="11" ry="7" fill="#A0CAF4" opacity="0.82" transform="rotate(80)"/>
+      <ellipse cx="0" cy="-15" rx="11" ry="7" fill="#88BAEC" opacity="0.80" transform="rotate(170)"/>
+      <ellipse cx="0" cy="-15" rx="11" ry="7" fill="#A0CAF4" opacity="0.78" transform="rotate(260)"/>
+      <circle cx="0" cy="0" r="4" fill="#D8ECFA"/>
+    </g>
+    <ellipse cx="52" cy="110" rx="46" ry="21" fill="#78BE88" opacity="0.70" transform="rotate(-8,52,110)"/>
+    <line x1="18" y1="108" x2="72" y2="78" stroke="#4E8A5E" stroke-width="1.6" opacity="0.60"/>
+  </svg>
+
+
+
+  <div class="hero-inner">
+    <div class="hero-tag">AI と 人 を つ な ぐ 輪　―　2026年 開業</div>
+    <div class="hero-copy1">諦めてきたチャンスを、取り戻す。</div>
+    <div class="hero-copy2">あなたの隣に、本物の伴走者を。</div>
+    <div class="hero-badge">運送会社の経営革新計画　専門家なしで一発承認。</div>
+    <div class="hero-desc">
+      開業したばかりの方も、今まさに経営中の方も。<br>
+      補助金・事業計画・専門家への相談——<br>
+      すべての「もったいない」を、AIWAが解決します。
+    </div>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">まず相談してみる</a>
+      <a href="#services" class="btn-secondary">サービスを見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- 3つのなくす -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">ABOUT AIWA</div>
+    <div class="section-title">AIWAが解決する、<br>3つの「もったいない」</div>
+    <div class="naku-grid">
+      <div class="naku-card c1">
+        <div class="naku-num">01</div>
+        <div class="naku-head">「調べなければわからなかった」を、なくす。</div>
+        <div class="naku-body">補助金・制度・申請のハードルをAIが一気に下げます。最新情報をあなたの事業・地域・フェーズに合わせて個別提供。</div>
+      </div>
+      <div class="naku-card c2">
+        <div class="naku-num">02</div>
+        <div class="naku-head">「高すぎて頼めなかった」を、なくす。</div>
+        <div class="naku-body">専門家・高額ソフトの代わりに、AIWAが低コストで対応。事業計画書の作成も、融資相談も、一緒に進めます。</div>
+      </div>
+      <div class="naku-card c3">
+        <div class="naku-num">03</div>
+        <div class="naku-head">「一般的な内容しか得られなかった」を、なくす。</div>
+        <div class="naku-body">その人の事業・地域・フェーズ・感情に特化したオーダーメイドの伴走サポート。あなただけの答えを出します。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- サービス -->
+<section id="services" class="svc-bg">
+  <div class="section-inner">
+    <div class="section-label">SERVICES</div>
+    <div class="section-title">ビジネス支援サービス</div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <span class="svc-tag tag-biz">ビジネス支援</span>
+        <div class="svc-name">補助金診断・伴走支援</div>
+        <div class="svc-desc">事業内容・地域・フェーズに合わせた補助金をリサーチし、優先順位付きで提案。申請書類の作成まで一貫サポート。</div>
+        <div class="svc-price">スポット 2〜3万円 ／ 月額顧問 3〜5万円</div>
+      </div>
+      <div class="svc-card">
+        <span class="svc-tag tag-biz">ビジネス支援</span>
+        <div class="svc-name">運送会社向け経営伴走</div>
+        <div class="svc-desc">営業許可取得直後から必要な経理・運行管理・補助金申請を一括支援。実務経験者ならではの現場目線でサポート。</div>
+        <div class="svc-price">初期費用 3〜5万円 ＋ 月額 4万円〜</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAシリーズ -->
+<section id="wa" class="wa-section">
+  <div class="section-inner">
+    <div class="section-label">WA SERIES</div>
+    <div class="section-title">子育て・家族を支える<br>WAシリーズ</div>
+    <div class="wa-grid">
+      <div class="wa-card">
+        <div class="wa-icon">🌸</div>
+        <div class="wa-name">こころわ</div>
+        <div class="wa-desc">妊娠期〜産後ママを見守るAI。特定ワード検知で町へアラート、翌日フォロー。</div>
+        <span class="wa-status ws-dev">開発中</span>
+      </div>
+      <div class="wa-card">
+        <div class="wa-icon">🛡️</div>
+        <div class="wa-name">まもりわ</div>
+        <div class="wa-desc">子どもの声をAIが検知し、いじめ・危険を早期発見。防犯ベルの次世代モデル。</div>
+        <span class="wa-status ws-dev">開発中</span>
+      </div>
+      <div class="wa-card">
+        <div class="wa-icon">👂</div>
+        <div class="wa-name">きくわ</div>
+        <div class="wa-desc">家族にも言えない感情を受け止めるAI。否定しない・評価しない・ただ聴く。</div>
+        <span class="wa-status ws-new">新規追加</span>
+      </div>
+      <div class="wa-card">
+        <div class="wa-icon">💬</div>
+        <div class="wa-name">つたわ</div>
+        <div class="wa-desc">夫婦・家族間の気持ちを言葉を選んで翻訳する仲裁AI。</div>
+        <span class="wa-status ws-new">新規追加</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- プロフィール -->
+<section id="profile">
+  <div class="section-inner">
+    <div class="section-label">REPRESENTATIVE</div>
+    <div class="section-title">代表プロフィール</div>
+    <div class="profile-wrap">
+      <!-- プロフィール内アジサイ -->
+      <svg class="profile-ajisai" viewBox="0 0 140 110" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(40,55)">
+          <ellipse cx="0" cy="-16" rx="11" ry="7" fill="#D8B0F0" opacity="0.8" transform="rotate(0)"/>
+          <ellipse cx="0" cy="-16" rx="11" ry="7" fill="#D8B0F0" opacity="0.8" transform="rotate(90)"/>
+          <ellipse cx="0" cy="-16" rx="11" ry="7" fill="#C8A0E8" opacity="0.7" transform="rotate(45)"/>
+          <ellipse cx="0" cy="-16" rx="11" ry="7" fill="#C8A0E8" opacity="0.7" transform="rotate(135)"/>
+          <circle cx="0" cy="0" r="4" fill="rgba(255,255,255,0.6)"/>
+        </g>
+        <g transform="translate(80,40)">
+          <ellipse cx="0" cy="-14" rx="9" ry="6" fill="#F0B0C8" opacity="0.75" transform="rotate(15)"/>
+          <ellipse cx="0" cy="-14" rx="9" ry="6" fill="#F0B0C8" opacity="0.75" transform="rotate(105)"/>
+          <ellipse cx="0" cy="-14" rx="9" ry="6" fill="#E8A8C0" opacity="0.65" transform="rotate(60)"/>
+          <ellipse cx="0" cy="-14" rx="9" ry="6" fill="#E8A8C0" opacity="0.65" transform="rotate(150)"/>
+          <circle cx="0" cy="0" r="3" fill="rgba(255,255,255,0.5)"/>
+        </g>
+        <ellipse cx="50" cy="90" rx="40" ry="20" fill="#A8D8B0" opacity="0.35" transform="rotate(-8,50,90)"/>
+      </svg>
+      <div class="profile-grid">
+        <div class="profile-avatar-wrap">
+          <div class="profile-avatar">
+            <!-- ここに写真を入れる場合は↓のimgタグを使用 -->
+            <!-- <img src="photo.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"> -->
+            絵美
+          </div>
+          <div class="profile-photo-note">※ お写真は後日差し替え予定</div>
+        </div>
+        <div>
+          <div class="profile-name">山﨑 絵美</div>
+          <div class="profile-name-en">Emi Yamazaki　／　代表</div>
+          <ul class="profile-items">
+            <li>一般貨物運送事業の運行管理・経理・総務をほぼ一人で担当</li>
+            <li>看護師として18年従事（保育園・介護デイサービス・医療型療養病棟・包括支援病棟での勤務実績）</li>
+            <li>経営革新計画を専門家なしで一発承認させた実績</li>
+            <li>地域の子育て支援機関との深い連携実績</li>
+            <li>里親経験による子育て当事者としての視点（要支援家庭の実態を内側から知る）</li>
+            <li>AI実務活用スキルと人の感情に寄り添う感覚</li>
+          </ul>
+          <div class="profile-quote">
+            「声をギリギリのところで出せたから救われた」——その経験が、AIWAの原点です。
+            言えなくて苦しむ人を一人でも減らすために、AIWAを創りました。
+            大変なことも分かち合いながら、あなたの隣で、一緒に歩きます。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ロードマップ -->
+<section id="roadmap" class="road-bg">
+  <div class="section-inner">
+    <div class="section-label">ROADMAP</div>
+    <div class="section-title">展開計画</div>
+    <ul class="road-list">
+      <li class="road-item active">
+        <div class="road-phase">2026年4月　開業</div>
+        <div class="road-title">🎉 AIWA 開業（一粒万倍日・甲子）</div>
+        <div class="road-desc">補助金診断・伴走支援の提供開始。運送会社向け経営伴走パッケージ営業開始。玉東町子ども福祉課にこころわを正式提案。</div>
+      </li>
+      <li class="road-item active">
+        <div class="road-phase">1〜3ヶ月</div>
+        <div class="road-title">補助金・融資の基盤整備</div>
+        <div class="road-desc">持続化補助金〈創業型〉申請。日本政策金融公庫への融資申請。GビズIDプライム取得。</div>
+      </li>
+      <li class="road-item">
+        <div class="road-phase">3〜6ヶ月</div>
+        <div class="road-title">玉東町との実証実験スタート</div>
+        <div class="road-desc">玉東町と共同でこころわ実証実験開始。デジタル田園都市国家構想交付金の申請準備。</div>
+      </li>
+      <li class="road-item">
+        <div class="road-phase">1年〜</div>
+        <div class="road-title">熊本県内展開・こども家庭庁へ</div>
+        <div class="road-desc">玉東町の実績を引っ提げて県内他市町村へ展開。こども家庭庁関連補助金への挑戦。</div>
+      </li>
+      <li class="road-item">
+        <div class="road-phase">3〜5年</div>
+        <div class="road-title">🌟 全国モデル・法人化</div>
+        <div class="road-desc">玉東町発の子育て見守りシステムを全国標準モデルへ。AIWAを法人化し事業拡大。</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- お問い合わせ -->
+<section id="contact" class="contact-bg">
+  <!-- お問い合わせ内アジサイ -->
+  <svg class="contact-ajisai" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(60,80)">
+      <ellipse cx="0" cy="-18" rx="12" ry="8" fill="#C8A8E8" opacity="0.7" transform="rotate(0)"/>
+      <ellipse cx="0" cy="-18" rx="12" ry="8" fill="#C8A8E8" opacity="0.7" transform="rotate(90)"/>
+      <ellipse cx="0" cy="-18" rx="12" ry="8" fill="#D0B0F0" opacity="0.6" transform="rotate(45)"/>
+      <ellipse cx="0" cy="-18" rx="12" ry="8" fill="#D0B0F0" opacity="0.6" transform="rotate(135)"/>
+      <circle cx="0" cy="0" r="5" fill="rgba(255,255,255,0.8)"/>
+    </g>
+    <g transform="translate(110,55)">
+      <ellipse cx="0" cy="-16" rx="10" ry="7" fill="#F0A8C8" opacity="0.65" transform="rotate(15)"/>
+      <ellipse cx="0" cy="-16" rx="10" ry="7" fill="#F0A8C8" opacity="0.65" transform="rotate(105)"/>
+      <ellipse cx="0" cy="-16" rx="10" ry="7" fill="#E898C0" opacity="0.55" transform="rotate(60)"/>
+      <ellipse cx="0" cy="-16" rx="10" ry="7" fill="#E898C0" opacity="0.55" transform="rotate(150)"/>
+      <circle cx="0" cy="0" r="4" fill="rgba(255,255,255,0.7)"/>
+    </g>
+    <g transform="translate(30,50)">
+      <ellipse cx="0" cy="-14" rx="9" ry="6" fill="#A8C8E8" opacity="0.6" transform="rotate(-10)"/>
+      <ellipse cx="0" cy="-14" rx="9" ry="6" fill="#A8C8E8" opacity="0.6" transform="rotate(80)"/>
+      <ellipse cx="0" cy="-14" rx="9" ry="6" fill="#98B8E0" opacity="0.5" transform="rotate(35)"/>
+      <ellipse cx="0" cy="-14" rx="9" ry="6" fill="#98B8E0" opacity="0.5" transform="rotate(125)"/>
+      <circle cx="0" cy="0" r="3" fill="rgba(255,255,255,0.7)"/>
+    </g>
+    <ellipse cx="80" cy="140" rx="60" ry="24" fill="#A8D8B0" opacity="0.4" transform="rotate(-5,80,140)"/>
+  </svg>
+
+  <div class="contact-inner">
+    <div class="section-label" style="color:var(--text-muted);">CONTACT</div>
+    <div class="contact-title">まず、話してみてください。</div>
+    <div class="contact-sub">
+      「こんなこと相談してもいいのかな」と思うくらいのことが、<br>
+      一番大切なことだったりします。お気軽にご連絡ください。
+    </div>
+    <div class="contact-cards">
+      <div class="contact-card">
+        <div class="contact-card-label">MAIL</div>
+        <div class="contact-card-val">aiwa.pj83@gmail.com</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-label">TEL</div>
+        <div class="contact-card-val">090-2586-8779</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-label">LOCATION</div>
+        <div class="contact-card-val">熊本県玉名郡玉東町</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-label">HOURS</div>
+        <div class="contact-card-val">平日 9:00 〜 18:00</div>
+      </div>
+    </div>
+    <a href="mailto:aiwa.pj83@gmail.com" class="btn-primary">メールで相談する</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">AIWA</div>
+  <div class="footer-sub">AI と 人 を つ な ぐ 輪</div>
+  <div class="footer-copy">© 2026 AIWA（アイワ）代表 山﨑絵美　熊本県玉名郡玉東町</div>
+</footer>
+
+</body>
+</html>
